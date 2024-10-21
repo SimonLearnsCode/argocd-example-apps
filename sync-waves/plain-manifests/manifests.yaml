@@ -19,7 +19,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   generateName: upgrade-sql-schema-2
-    annotations:
+  annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/wave: "1"
 spec:
@@ -58,7 +58,7 @@ metadata:
   name: backend
   annotations:
     argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/wave: "0"
+    argocd.argoproj.io/wave: "0"    
 spec:
   selector:
     tier: backend
@@ -71,10 +71,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: maint-page-up
-  name: maint-page-up
   annotations:
     argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/wave: "1" 
+    argocd.argoproj.io/wave: "1"    
 spec:
   template:
     spec:
@@ -91,7 +90,7 @@ metadata:
   name: frontend
   annotations:
     argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/wave: "2" 
+    argocd.argoproj.io/wave: "2"    
 spec:
   replicas: 1
   selector:
@@ -112,7 +111,7 @@ metadata:
   name: frontend
   annotations:
     argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/wave: "2" 
+    argocd.argoproj.io/wave: "2"      
 spec:
   selector:
     tier: frontend
@@ -127,7 +126,7 @@ metadata:
   name: maint-page-down
   annotations:
     argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/wave: "3"
+    argocd.argoproj.io/wave: "3"      
 spec:
   template:
     spec:
